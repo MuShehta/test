@@ -12,6 +12,22 @@
 
             return 0m;
         }
+        public async Task<bool> SyncCustomerAsync(int customerId)
+        {
+            var response = await _httpClient.GetAsync(
+                $"https://api.example.com/customers/{customerId}");
+        
+            if (!response.IsSuccessStatusCode)
+            {
+                return false;
+            }
+        
+            var json = await response.Content.ReadAsStringAsync();
+        
+            Console.WriteLine(json);
+        
+            return true;
+        }
 
     }
 }
