@@ -21,11 +21,7 @@
             {
                 return false;
             }
-        
-            var json = await response.Content.ReadAsStringAsync();
-        
-            Console.WriteLine(json);
-        
+                        
             return true;
         }
 
